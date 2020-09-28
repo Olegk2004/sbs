@@ -1,25 +1,26 @@
 package com.company;
 
-import java.util.Scanner;
-
-import static sun.swing.MenuItemLayoutHelper.max;
 
 public class Main {
 
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        int n = scan.nextInt();
-        int[] a = new int[n];
-        int m = 0;
-        for (int j = 0; j < n; j++) {
-            a[j] = scan.nextInt();
+        int[][] a = new int[25][4];
+        int q = 1;
+        for (int i = 0; i < 25; i++) {
+            for (int j = 0; j < 4; j++) {
+                if (i % 2 == 0) {
+                    a[i][j] = q;
+                } else {
+                    a[i][3 - j] = q;
+                }
+                q++;
+            }
         }
-             for(int j=0;j<n; j++) {
-               if (a[j] > m) {
-                 m = a[j];
-           }
-              }
-        System.out.println(m);
-
+        for (int i = 0; i < 25; i++) {
+            for (int j = 0; j < 4; j++) {
+                System.out.print(a[i][j] + " ");
+            }
+            System.out.println(" ");
+        }
     }
 }
